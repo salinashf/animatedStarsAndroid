@@ -1,2 +1,0 @@
-# animatedStarsAndroid
-AnimatedStarsView for Android
