@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "animated-stars-android"
+rootProject.name = "animated-stars-android-v5"
 include ':app'
-include ':stars'
+include ':start'

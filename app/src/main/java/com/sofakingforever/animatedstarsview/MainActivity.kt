@@ -1,46 +1,28 @@
 package com.sofakingforever.animatedstarsview
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.sofakingforever.animatedstarsview.ui.theme.AnimatedstarsandroidTheme
+import com.sofakingforever.stars.AnimatedStarsView
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+    lateinit var stars: AnimatedStarsView;
+    lateinit var stars_white: AnimatedStarsView;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            AnimatedstarsandroidTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)
+        stars = findViewById(R.id.stars);
+        stars_white = findViewById(R.id.stars_white);
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+    override fun onStart() {
+        super.onStart()
+        stars_white.onStart()
+        stars.onStart()
+    }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AnimatedstarsandroidTheme {
-        Greeting("Android")
+    override fun onStop() {
+        stars_white.onStop()
+        stars.onStop()
+        super.onStop()
     }
 }
